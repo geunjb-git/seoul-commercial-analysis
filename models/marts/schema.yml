@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: mart_trade_area_quarterly
+    description: 서울시 상권별 2025년 분기 통합 분석 테이블
+
+    columns:
+      - name: trade_area_quarter_key
+        description: 분기와 상권코드를 결합한 고유 키
+        data_tests:
+          - not_null
+          - unique
+
+      - name: quarter_code
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 20251
+                  - 20252
+                  - 20253
+                  - 20254
+                quote: false
+
+      - name: trade_area_code
+        data_tests:
+          - not_null
+
+      - name: trade_area_name
+        data_tests:
+          - not_null
+
+      - name: total_sales
+        data_tests:
+          - not_null
+
+      - name: total_sales_count
+        data_tests:
+          - not_null
+
+      - name: total_store_count
+        data_tests:
+          - not_null
+
+      - name: trade_area_size_m2
+        data_tests:
+          - not_null
